@@ -2,6 +2,10 @@
   "name": "One MEAN To-do List",
   "version": "0.0.1",
   "description": "a to-do List.",
+  "engines": {
+    "node": "6.2.2",
+    "npm": "3.9.5"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
