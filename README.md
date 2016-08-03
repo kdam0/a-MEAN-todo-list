@@ -1,5 +1,5 @@
 ## Live site:
-(soon avail)
+https://sleepy-badlands-16498.herokuapp.com
 
 ## For local running:
 ## Requirements
