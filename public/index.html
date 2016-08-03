@@ -1,0 +1,72 @@
+<!doctype html>
+<html ng-app="toDoList">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 					<!-- set mobile viewport -->
+
+	<title>A Simple To-do List</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+	<!--Custom CSS-->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- SCRIPTS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> <!-- load angular -->
+	<script src="js/controllers/todoController.js"></script> 											<!-- load controller -->
+	<script src="js/services/todoService.js"></script> 											<!-- load todoService -->
+	<script src="js/app.js"></script> 														<!-- load main application -->
+</head>
+
+<!-- controller -->
+<body ng-controller="mainController">
+	<section class="container">
+
+		<!-- Title -->
+		<article class="jumbotron text-center">
+			<h1>You have <span class="label label-primary">{{ todos.length }}</span> to-dos</h1>
+		</article>
+
+		<!-- List -->
+		<section id="todo-list" class="row">
+			<section class="col-sm-4 col-sm-offset-4">
+
+
+				<!-- fetch all the todo items -->
+				<article class="checkbox" ng-repeat="todo in todos">
+					<label>
+						<input type="checkbox" ng-click="deleteTodo(todo._id)"><strong>{{ todo.text }}</strong>
+					</label>
+				</article>
+
+				<!-- loading circle icon via (bootstrap)-->
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+
+			</section>
+		</section>
+
+		<!-- Add form -->
+		<section id="todo-form" class="row">
+			<section class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<article class="form-group">
+
+						<!-- attach to formData.text in (angular) -->
+						<input type="text" class="form-control input-lg text-center" placeholder="Eg: Watch the Simpsons -- again " ng-model="formData.text">
+					</article>
+
+					<!-- createTodo to create new item -->
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+				</form>
+			</section>
+		</section>
+
+	</section>
+
+</body>
+</html>
