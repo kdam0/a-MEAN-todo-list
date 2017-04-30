@@ -1,17 +1,14 @@
 // get the todos collection
 var todoCollect = require('./models/todo');
 
-
 // use mongo to get all the items in db
 function getTodos (res) {
     todoCollect.find(function (err, todos) {
         if (err) res.send(err);
-
-        res.json(todos); // return all todos in JSON format
-        // console.log(todos);
+        // return all todos in JSON format
+        res.json(todos); 
     });
 }
-
 
 // ===========================API===============================
 module.exports = function (app) {
@@ -30,7 +27,6 @@ module.exports = function (app) {
             done: false
         }, function (err, todo) {
             if (err) res.send(err);
-
             // 'refresh' to-do list
             getTodos(res);
         });
@@ -43,7 +39,6 @@ module.exports = function (app) {
             _id: req.params.todo_id
         }, function (err, todo) {
             if (err) res.send(err);
-
             // 'refresh' to-do list
             getTodos(res);
         });
